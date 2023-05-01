@@ -9,6 +9,7 @@ export class LogsController {
 
   @Post()
   create(@Body() createLogDto: CreateLogDto) {
+    console.log("come in")
     return this.logsService.create(createLogDto);
   }
 
