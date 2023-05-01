@@ -8,6 +8,14 @@ const cors = require("cors")
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.use(cors({    
+      "origin": "*",
+      "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+      "preflightContinue": false,
+      "optionsSuccessStatus": 204    
+})); 
+
+
   const config = new DocumentBuilder()
     .setTitle('Cats example')
     .setDescription('The cats API description')
@@ -17,10 +25,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  app.use(cors({
-    origin: '*'
-})); 
-
+ 
   await app.listen(8080);
 }
 bootstrap();
