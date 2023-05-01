@@ -7,6 +7,8 @@ const cors = require('cors');
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
 
+  app.enableCors();
+
   /*
   app.use(
     cors({
@@ -16,7 +18,7 @@ async function bootstrap() {
       optionsSuccessStatus: 204,
     }),
   );
-*/
+
 
 const options = {
   "origin": "/**",
@@ -28,7 +30,7 @@ const options = {
 //app.use(cors(options))
 app.enableCors(options)
 
- 
+ */
  
 
   const config = new DocumentBuilder()
