@@ -15,6 +15,12 @@ async function bootstrap() {
       optionsSuccessStatus: 204,
     }),
   );
+  
+  app.enableCors({
+    origin: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+});
 
   const config = new DocumentBuilder()
     .setTitle('Cats example')
