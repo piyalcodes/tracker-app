@@ -9,15 +9,15 @@ async function bootstrap() {
 
   app.use(
     cors({
-      origin: '*',
+      origin: "*",
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
       preflightContinue: false,
       optionsSuccessStatus: 204,
     }),
   );
-  
+
   app.enableCors({
-    origin: true,
+    origin: "*",
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
 });
